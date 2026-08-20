@@ -103,6 +103,16 @@
 
         height = <64>;
 
+        segment-offset = <0>;
+
+        page-offset = <0>;
+
+        display-offset = <0>;
+
+        multiplex-ratio = <63>;
+
+        prechargep = <2>;
+
         segment-remap;
 
         com-invdir;
