@@ -1,0 +1,6 @@
+if SHIELD_THREEKEY
+
+config ZMK_KEYBOARD_NAME
+    default "ThreeKey"
+
+endif
