@@ -43,6 +43,41 @@
 };
 
 
+&pinctrl {
+
+    threekey_i2c0_default: threekey_i2c0_default {
+
+        group1 {
+
+            psels = <
+                NRF_PSEL(TWIM_SDA,0,29)
+                NRF_PSEL(TWIM_SCL,0,31)
+            >;
+
+        };
+
+    };
+
+
+
+    threekey_i2c0_sleep: threekey_i2c0_sleep {
+
+        group1 {
+
+            psels = <
+                NRF_PSEL(TWIM_SDA,0,29)
+                NRF_PSEL(TWIM_SCL,0,31)
+            >;
+
+            low-power-enable;
+
+        };
+
+    };
+
+};
+
+
 
 &i2c0 {
 
