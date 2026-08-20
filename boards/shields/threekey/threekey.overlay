@@ -1,0 +1,57 @@
+#include <nice_nano_v2.dtsi>
+#include <behaviors.dtsi>
+
+
+/ {
+    chosen {
+        zmk,kscan = &kscan;
+        zmk,display = &oled;
+    };
+
+
+    kscan: kscan {
+
+        compatible = "zmk,kscan-gpio-direct";
+
+
+        input-gpios = <
+            &gpio0 17 GPIO_ACTIVE_LOW
+            &gpio0 20 GPIO_ACTIVE_LOW
+            &gpio0 22 GPIO_ACTIVE_LOW
+        >;
+
+    };
+
+};
+
+
+/*
+ * OLED SSD1306
+ *
+ * SDA D20=P0.29
+ * SCL D21=P0.31
+ */
+
+
+&i2c0 {
+
+    status = "okay";
+
+
+    oled: ssd1306@3c {
+
+        compatible = "solomon,ssd1306fb";
+
+        reg = <0x3c>;
+
+        width = <128>;
+
+        height = <64>;
+
+        segment-remap;
+
+        com-invdir;
+
+    };
+
+};
