@@ -111,7 +111,7 @@
 
         multiplex-ratio = <63>;
 
-        prechargep = <2>;
+        prechargep = <34>;
 
         segment-remap;
 
