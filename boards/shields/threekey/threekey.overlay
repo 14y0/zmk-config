@@ -122,3 +122,15 @@
     };
 
 };
+
+
+
+&usbd {
+
+    cdc_acm_uart: zephyr,cdc-acm-uart {
+
+        compatible = "zephyr,cdc-acm-uart";
+
+    };
+
+};
