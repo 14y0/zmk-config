@@ -19,4 +19,22 @@
         };
 
     };
+
+
+    combos {
+
+        compatible = "zmk,combos";
+
+
+        combo_bootloader {
+
+            timeout-ms = <50>;
+
+            key-positions = <0 1 2>;
+
+            bindings = <&bootloader>;
+
+        };
+
+    };
 };
