@@ -37,7 +37,23 @@
             &gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
             &gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
             &gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
+            &gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
         >;
+
+    };
+
+
+    encoder: encoder {
+
+        compatible = "alps,ec11";
+
+        a-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+
+        b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+
+        resolution = <4>;
+
+        status = "okay";
 
     };
 

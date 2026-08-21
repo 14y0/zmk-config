@@ -14,9 +14,21 @@
                 &kp A
                 &kp B
                 &kp C
+                &kp ENTER
             >;
 
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DOWN>;
+
         };
+
+    };
+
+
+    sensors {
+
+        compatible = "zmk,keymap-sensors";
+
+        sensors = <&encoder>;
 
     };
 
