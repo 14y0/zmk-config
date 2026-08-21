@@ -113,6 +113,8 @@
 
         prechargep = <34>;
 
+        ready-time-ms = <200>;
+
         segment-remap;
 
         com-invdir;
