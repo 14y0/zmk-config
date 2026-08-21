@@ -30,6 +30,8 @@
 
         sensors = <&encoder>;
 
+        triggers-per-rotation = <20>;
+
     };
 
 
