@@ -51,7 +51,7 @@
 
         b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 
-        steps = <80>;
+        steps = <40>;
 
         status = "okay";
 
