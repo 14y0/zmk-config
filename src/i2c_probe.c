@@ -9,7 +9,7 @@
 
 LOG_MODULE_REGISTER(i2c_probe, LOG_LEVEL_INF);
 
-static void i2c_probe_work(struct k_work *work)
+static void i2c_probe_work_handler(struct k_work *work)
 {
 	uint32_t psda = NRF_TWIM0->PSEL.SDA;
 	uint32_t pscl = NRF_TWIM0->PSEL.SCL;
@@ -20,7 +20,7 @@ static void i2c_probe_work(struct k_work *work)
 		pscl & 0x1Fu, (pscl >> 8) & 0x1u, (pscl >> 31) & 1u);
 }
 
-K_WORK_DELAYABLE_DEFINE(i2c_probe_work, i2c_probe_work);
+K_WORK_DELAYABLE_DEFINE(i2c_probe_work, i2c_probe_work_handler);
 
 static int i2c_probe_init(void)
 {
