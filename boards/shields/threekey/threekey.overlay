@@ -1,6 +1,6 @@
 /*
- * ThreeKey Keyboard - MINIMAL DEBUG build
- * OLED and EC11 disabled to isolate boot hang
+ * ThreeKey Keyboard - DEBUG: OLED enabled, EC11 disabled
+ * Isolate which peripheral hangs boot
  */
 
 #include <dt-bindings/gpio/gpio.h>
@@ -9,6 +9,7 @@
 / {
     chosen {
         zmk,kscan = &kscan;
+        zephyr,display = &oled;
         zephyr,console = &cdc_acm_uart;
     };
 
@@ -26,6 +27,88 @@
             &gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
             &gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)
         >;
+
+    };
+
+};
+
+
+
+&pinctrl {
+
+    threekey_i2c0_default: threekey_i2c0_default {
+
+        group1 {
+
+            psels = <
+                NRF_PSEL(TWIM_SDA,0,29)
+                NRF_PSEL(TWIM_SCL,0,31)
+            >;
+
+        };
+
+    };
+
+
+
+    threekey_i2c0_sleep: threekey_i2c0_sleep {
+
+        group1 {
+
+            psels = <
+                NRF_PSEL(TWIM_SDA,0,29)
+                NRF_PSEL(TWIM_SCL,0,31)
+            >;
+
+            low-power-enable;
+
+        };
+
+    };
+
+};
+
+
+
+&i2c0 {
+
+    status = "okay";
+
+
+    pinctrl-0 = <&threekey_i2c0_default>;
+
+    pinctrl-1 = <&threekey_i2c0_sleep>;
+
+    pinctrl-names =
+        "default",
+        "sleep";
+
+
+    oled: ssd1306@3c {
+
+        compatible = "solomon,ssd1306fb";
+
+        reg = <0x3c>;
+
+        width = <128>;
+
+        height = <64>;
+
+        segment-offset = <0>;
+
+        page-offset = <0>;
+
+        display-offset = <0>;
+
+        multiplex-ratio = <63>;
+
+        prechargep = <34>;
+
+        ready-time-ms = <200>;
+
+        segment-remap;
+
+        com-invdir;
 
     };
 
