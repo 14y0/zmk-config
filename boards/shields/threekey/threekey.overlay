@@ -41,8 +41,8 @@
         group1 {
 
             psels = <
-                NRF_PSEL(TWIM_SDA,1,0)
-                NRF_PSEL(TWIM_SCL,0,11)
+                NRF_PSEL(TWIM_SDA,0,29)
+                NRF_PSEL(TWIM_SCL,0,31)
             >;
 
         };
@@ -56,8 +56,8 @@
         group1 {
 
             psels = <
-                NRF_PSEL(TWIM_SDA,1,0)
-                NRF_PSEL(TWIM_SCL,0,11)
+                NRF_PSEL(TWIM_SDA,0,29)
+                NRF_PSEL(TWIM_SCL,0,31)
             >;
 
             low-power-enable;
@@ -104,7 +104,7 @@
 
         prechargep = <34>;
 
-        ready-time-ms = <200>;
+        ready-time-ms = <500>;
 
         segment-remap;
 
