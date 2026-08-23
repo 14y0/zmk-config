@@ -41,8 +41,8 @@
         group1 {
 
             psels = <
-                NRF_PSEL(TWIM_SDA,0,29)
-                NRF_PSEL(TWIM_SCL,0,31)
+                NRF_PSEL(TWIM_SDA,1,0)
+                NRF_PSEL(TWIM_SCL,0,11)
             >;
 
         };
@@ -56,8 +56,8 @@
         group1 {
 
             psels = <
-                NRF_PSEL(TWIM_SDA,0,29)
-                NRF_PSEL(TWIM_SCL,0,31)
+                NRF_PSEL(TWIM_SDA,1,0)
+                NRF_PSEL(TWIM_SCL,0,11)
             >;
 
             low-power-enable;
